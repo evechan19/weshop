@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <style>
+        .unclickable{
+            font-size: 18px;
+            font-family: 'Roboto','sans-serif';
+            text-align: center;
+            background-color: #999999;
+            color: #666666;
+        }
+    </style>
+    <style>
+        .clickable{
+            font-family: 'Roboto','sans-serif';
+            font-size: 18px;
+            text-align: center;
+            background-color: dodgerblue;
+            color: navy;
+        }
+    </style>
+    <style>
+        html, body {
+            height: 100%;
+            width: 100%;
+            overflow: scroll;
+        }
+        form {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+        #floating-panel {
+            position: absolute;
+            right: 0;
+            background-color: #fff;
+            text-align: center;
+            line-height: 30px;
+        }
+        #map {
+            position: absolute;
+            top: 45px;
+            right: 0;
+            height: 850px;
+            width: 1400px;
+            background-color: #666666;
+        }
+        footer {
+            position: absolute;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+<form>
+    <input style="width: 500px; font-size: 18px; height: 28px; font-family: 'Comic Sans MS'; color: #999999" type="text" name="keywords" value = "input something interesting here" >
+</form>
+<div id="floating-panel">
+    <input class="unclickable" onclick="createEvent()" type=button value="Create Event">
+    <input class="unclickable" onclick="onGoingEvent()" type=button value="Ongoing Event">
+    <input class="unclickable" onclick="invitation()" type=button value="Invitations">
+    <input class="clickable" onclick="location.href='SignIn.html'" type=button value="Sign In">
+    <input class="clickable" onclick="location.href='SignUp.html'" type=button value="Sign Up" style="color:lightpink">
+</div>
+<div id="map"></div>
+<script>
+    function initMap() {
+        var uluru = {lat: 40.78, lng: -73.90};
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 10,
+            center: uluru
+        });
+    }
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAuy5-bTczo1PYVkSlLdIDVqB5LF1Ibyow&callback=initMap">
+</script>
+</body>
+<footer>
+        <p>© 2017 WeShop. All rights reserved.</p>
+</footer>
+</html>
